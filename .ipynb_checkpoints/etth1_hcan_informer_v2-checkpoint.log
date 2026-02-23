@@ -1,0 +1,29 @@
+nohup: ignoring input
+Args in experiment:
+Namespace(activation='gelu', annealing_start=0.01, annealing_step=10, batch_size=32, c_out=7, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, data='ETTh1', data_path='ETTh1.csv', dec_in=7, des='test', devices='4,5,6,7', distil=True, do_predict=False, dropout=0.05, e_layers=2, edl_loss='edl_mse', embed='timeF', embed_type=0, enc_in=7, etrans_func='softplus', factor=3, features='M', freq='h', gpu=0, hidden_dim=512, individual=False, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.0001, lambda_direct=1.0, lambda_reg=1.0, learning_rate=0.001, loss='mse', lradj='type1', model='Informer', model_id='ETTh1_96_96_HCAN', moving_avg=25, n_heads=8, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=96, root_path='./dataset/ETT-small/', seq_len=96, target='OT', test_flop=False, train_epochs=30, train_only=False, use_amp=False, use_gpu=True, use_multi_gpu=False, use_span_weight=False, with_iw=True, with_kl=True, with_uc=True)
+Use GPU: cuda:0
+>>>>>>>start training : ETTh1_96_96_HCAN_Informer_ETTh1_ftM_sl96_ll48_pl96_lc0.0001_lr0.001_dm512_nh8_el2_dl1_df2048_fc3_ebtimeF_dtTrue_test_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+Traceback (most recent call last):
+  File "run_longExp.py", line 142, in <module>
+    exp.train(setting)
+  File "/root/autodl-tmp/HCAN-main/HCAN-main/exp/exp_main.py", line 190, in train
+    train_data, train_loader = self._get_data(flag='train')
+  File "/root/autodl-tmp/HCAN-main/HCAN-main/exp/exp_main.py", line 97, in _get_data
+    data_set, data_loader = data_provider(self.args, flag)
+  File "/root/autodl-tmp/HCAN-main/HCAN-main/data_provider/data_factory.py", line 35, in data_provider
+    data_set = Data(
+  File "/root/autodl-tmp/HCAN-main/HCAN-main/data_provider/data_loader.py", line 45, in __init__
+    self.__read_data__()
+  File "/root/autodl-tmp/HCAN-main/HCAN-main/data_provider/data_loader.py", line 54, in __read_data__
+    df_raw = pd.read_csv(os.path.join(self.root_path,
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: './dataset/ETT-small/ETTh1.csv'

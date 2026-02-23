@@ -1,0 +1,7 @@
+Args in experiment:
+Namespace(activation='gelu', annealing_start=0.01, annealing_step=10, batch_size=32, c_out=7, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, data='ETTh1', data_path='ETTh1.csv', dec_in=7, des='Exp', devices='4,5,6,7', distil=True, do_predict=False, dropout=0.05, e_layers=2, edl_loss='edl_mse', embed='timeF', embed_type=0, enc_in=7, etrans_func='softplus', factor=3, features='M', freq='h', gpu=0, hidden_dim=512, individual=False, is_training=1, itr=5, label_len=48, lambda_acl=1, lambda_cls=0.0001, lambda_direct=1, lambda_reg=1, learning_rate=0.001, loss='mse', lradj='type1', model='Informer', model_id='ETTh1_96_96', moving_avg=25, n_heads=8, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=96, root_path='./dataset/ETT-small/', seq_len=96, target='OT', test_flop=False, train_epochs=30, train_only=False, use_amp=False, use_gpu=True, use_multi_gpu=False, use_span_weight=False, with_iw=True, with_kl=True, with_uc=True)
+Use GPU: cuda:0
+>>>>>>>start training : ETTh1_96_96_Informer_ETTh1_ftM_sl96_ll48_pl96_lc0.0001_lr0.001_dm512_nh8_el2_dl1_df2048_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 8449 M
+val 2785 M
+test 2785 M

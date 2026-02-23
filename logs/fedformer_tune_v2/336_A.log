@@ -1,0 +1,11 @@
+Args in experiment:
+Namespace(activation='gelu', adapter_hidden=0, alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=7, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, d_proj=16, data='ETTh1', data_path='ETTh1.csv', dec_in=7, des='fed_v2_336A', detach_temp=1, devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, dual_stream=False, e_layers=2, embed='timeF', embed_type=0, enc_in=7, factor=5, features='M', freeze_backbone=False, freeze_geo=False, freq='h', gate_power=2, geohcan_d_model=0, gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_geo=0.0, lambda_latent=0.001, lambda_ortho=0.001, lambda_reg=0.05, lambda_uac=1.0, learning_rate=0.0001, loss='mse', lradj='type1', model='FEDformer', model_id='fed_v2_336A', moving_avg=25, n_heads=8, no_geohcan=False, num_class=6, num_coarse=2, num_fine=6, num_kernels=6, num_workers=10, output_attention=False, patch_len=16, patience=3, pred_len=336, rbf_gamma=1.0, root_path='./dataset/ETT-small/', seq_len=96, stride=8, target='OT', task_name='long_term_forecast', test_flop=False, timesnet_d_ff=32, timesnet_d_model=32, top_k=5, train_epochs=10, train_only=False, use_amp=False, use_energy_gate=0, use_gpu=True, use_multi_gpu=False, use_proj_ln=1)
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[2, 3, 4, 5, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 23, 25, 26, 28, 31, 32, 34, 35, 37, 38, 39, 40, 42, 43, 44, 46]
+fourier enhanced block used!
+modes=32, index=[0, 1, 5, 8, 13, 15, 28, 37, 43, 59, 63, 72, 85, 86, 88, 92, 95, 101, 109, 117, 128, 130, 134, 138, 144, 149, 150, 151, 154, 163, 182, 185]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[4, 12, 13, 24, 27, 34, 35, 45, 46, 50, 70, 76, 81, 83, 92, 95, 98, 113, 118, 120, 128, 133, 138, 139, 147, 151, 152, 157, 163, 169, 179, 191]
+modes_kv=32, index_kv=[1, 4, 5, 6, 7, 9, 10, 13, 14, 15, 16, 17, 18, 19, 20, 24, 25, 26, 29, 30, 33, 34, 36, 38, 39, 40, 41, 43, 44, 45, 46, 47]
+[Model] FEDformer | backbone_out=512 | geohcan_dim=512 | Backbone(512) → no adapter → GeoHCAN → Head → c_out(7)

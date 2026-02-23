@@ -1,0 +1,171 @@
+============================================
+Test 1: 还原原始超参 lr=1e-5, factor=3, 无保护, 有energy_gate
+  → 最接近 0.305 的配置 (除了 K-Means init 和 T mapping)
+============================================
+Args in experiment:
+Namespace(activation='gelu', alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=21, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, d_proj=64, data='custom', data_path='weather.csv', dec_in=21, des='ablation_A', detach_temp=0, devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, e_layers=2, embed='timeF', embed_type=0, enc_in=21, factor=3, features='M', freq='h', gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_geo=0.0, lambda_latent=0.0, lambda_reg=0.05, lambda_uac=1.0, learning_rate=1e-05, loss='mse', lradj='type1', model='Informer', model_id='abl_lr1e5_f3_EG', n_heads=8, num_class=4, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=96, rbf_gamma=1.0, root_path='./dataset/weather/', seq_len=96, target='OT', test_flop=False, train_epochs=6, train_only=False, use_amp=False, use_energy_gate=1, use_gpu=True, use_multi_gpu=False, use_proj_ln=0)
+Use GPU: cuda:0
+>>>>>>>start training : abl_lr1e5_f3_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_A_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 36696 M
+val 5175 M
+test 10444 M
+>>> [GeoHCAN] K-Means init done: 153600 samples → 4 centroids
+[GeoHCAN N=4] Ev:9.6 | maxSim:0.463 | u_resp:0.179 | T:0.177 | ||Q||:4.5 | L_lat:0.5265 | L_geo:0.0000
+[GeoHCAN N=4] Ev:9.4 | maxSim:0.456 | u_resp:0.179 | T:0.178 | ||Q||:4.5 | L_lat:0.5339 | L_geo:0.0000
+[GeoHCAN N=4] Ev:9.6 | maxSim:0.459 | u_resp:0.179 | T:0.178 | ||Q||:4.5 | L_lat:0.5293 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.9 | maxSim:0.384 | u_resp:0.186 | T:0.195 | ||Q||:4.5 | L_lat:0.6074 | L_geo:0.0000
+Epoch: 1 | Train Loss: 0.4670514 Vali Loss: 0.4567230
+Validation loss decreased (inf --> 0.456723).  Saving model ...
+Updating learning rate to 1e-05
+[GeoHCAN N=4] Ev:7.4 | maxSim:0.357 | u_resp:0.189 | T:0.206 | ||Q||:4.5 | L_lat:0.6360 | L_geo:0.0000
+Epoch: 2 | Train Loss: 0.3633598 Vali Loss: 0.4783058
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-06
+[GeoHCAN N=4] Ev:7.1 | maxSim:0.338 | u_resp:0.191 | T:0.217 | ||Q||:4.5 | L_lat:0.6544 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.0 | maxSim:0.326 | u_resp:0.192 | T:0.220 | ||Q||:4.6 | L_lat:0.6659 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.0 | maxSim:0.324 | u_resp:0.192 | T:0.223 | ||Q||:4.6 | L_lat:0.6673 | L_geo:0.0000
+[GeoHCAN N=4] Ev:6.9 | maxSim:0.318 | u_resp:0.193 | T:0.225 | ||Q||:4.6 | L_lat:0.6726 | L_geo:0.0000
+Epoch: 3 | Train Loss: 0.3445330 Vali Loss: 0.4765035
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 2.5e-06
+[GeoHCAN N=4] Ev:6.8 | maxSim:0.305 | u_resp:0.195 | T:0.230 | ||Q||:4.6 | L_lat:0.6848 | L_geo:0.0000
+Epoch: 4 | Train Loss: 0.3364358 Vali Loss: 0.4817828
+EarlyStopping counter: 3 out of 3
+>>>>>>>testing : abl_lr1e5_f3_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_A_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 10444 M
+mse:0.3391723334789276, mae:0.4054751396179199
+>>> Visualization saved to ./test_results/abl_lr1e5_f3_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_A_0/
+
+============================================
+Test 2: 只改 lr → 1e-4 (其他同 Test 1)
+  → 隔离 learning_rate 的影响
+============================================
+Args in experiment:
+Namespace(activation='gelu', alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=21, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, d_proj=64, data='custom', data_path='weather.csv', dec_in=21, des='ablation_B', detach_temp=0, devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, e_layers=2, embed='timeF', embed_type=0, enc_in=21, factor=3, features='M', freq='h', gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_geo=0.0, lambda_latent=0.0, lambda_reg=0.05, lambda_uac=1.0, learning_rate=0.0001, loss='mse', lradj='type1', model='Informer', model_id='abl_lr1e4_f3_EG', n_heads=8, num_class=4, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=96, rbf_gamma=1.0, root_path='./dataset/weather/', seq_len=96, target='OT', test_flop=False, train_epochs=6, train_only=False, use_amp=False, use_energy_gate=1, use_gpu=True, use_multi_gpu=False, use_proj_ln=0)
+Use GPU: cuda:0
+>>>>>>>start training : abl_lr1e4_f3_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_B_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 36696 M
+val 5175 M
+test 10444 M
+>>> [GeoHCAN] K-Means init done: 153600 samples → 4 centroids
+[GeoHCAN N=4] Ev:8.6 | maxSim:0.408 | u_resp:0.183 | T:0.192 | ||Q||:4.6 | L_lat:0.5842 | L_geo:0.0000
+[GeoHCAN N=4] Ev:8.3 | maxSim:0.394 | u_resp:0.185 | T:0.196 | ||Q||:4.6 | L_lat:0.5966 | L_geo:0.0000
+[GeoHCAN N=4] Ev:8.4 | maxSim:0.398 | u_resp:0.184 | T:0.197 | ||Q||:4.6 | L_lat:0.5940 | L_geo:0.0000
+[GeoHCAN N=4] Ev:6.8 | maxSim:0.221 | u_resp:0.203 | T:0.297 | ||Q||:5.2 | L_lat:0.7323 | L_geo:0.0000
+Epoch: 1 | Train Loss: 0.3674730 Vali Loss: 0.4722283
+Validation loss decreased (inf --> 0.472228).  Saving model ...
+Updating learning rate to 0.0001
+[GeoHCAN N=4] Ev:7.3 | maxSim:0.194 | u_resp:0.203 | T:0.393 | ||Q||:5.9 | L_lat:0.7364 | L_geo:0.0000
+Epoch: 2 | Train Loss: 0.2813474 Vali Loss: 0.5367249
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-05
+[GeoHCAN N=4] Ev:7.5 | maxSim:0.164 | u_resp:0.205 | T:0.509 | ||Q||:6.3 | L_lat:0.7903 | L_geo:0.0000
+[GeoHCAN N=4] Ev:8.0 | maxSim:0.162 | u_resp:0.203 | T:0.512 | ||Q||:6.7 | L_lat:0.7944 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.8 | maxSim:0.137 | u_resp:0.206 | T:0.547 | ||Q||:6.9 | L_lat:0.8259 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.7 | maxSim:0.136 | u_resp:0.207 | T:0.552 | ||Q||:6.8 | L_lat:0.8315 | L_geo:0.0000
+Epoch: 3 | Train Loss: 0.2291762 Vali Loss: 0.5146770
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 2.5e-05
+[GeoHCAN N=4] Ev:7.8 | maxSim:0.118 | u_resp:0.208 | T:0.571 | ||Q||:7.1 | L_lat:0.8533 | L_geo:0.0000
+Epoch: 4 | Train Loss: 0.2063999 Vali Loss: 0.5232449
+EarlyStopping counter: 3 out of 3
+>>>>>>>testing : abl_lr1e4_f3_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_B_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 10444 M
+mse:0.30514514446258545, mae:0.37875235080718994
+>>> Visualization saved to ./test_results/abl_lr1e4_f3_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_B_0/
+
+============================================
+Test 3: 只改 factor → 5 (其他同 Test 1)
+  → 隔离 factor 的影响
+============================================
+Args in experiment:
+Namespace(activation='gelu', alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=21, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, d_proj=64, data='custom', data_path='weather.csv', dec_in=21, des='ablation_C', detach_temp=0, devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, e_layers=2, embed='timeF', embed_type=0, enc_in=21, factor=5, features='M', freq='h', gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_geo=0.0, lambda_latent=0.0, lambda_reg=0.05, lambda_uac=1.0, learning_rate=1e-05, loss='mse', lradj='type1', model='Informer', model_id='abl_lr1e5_f5_EG', n_heads=8, num_class=4, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=96, rbf_gamma=1.0, root_path='./dataset/weather/', seq_len=96, target='OT', test_flop=False, train_epochs=6, train_only=False, use_amp=False, use_energy_gate=1, use_gpu=True, use_multi_gpu=False, use_proj_ln=0)
+Use GPU: cuda:0
+>>>>>>>start training : abl_lr1e5_f5_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_C_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 36696 M
+val 5175 M
+test 10444 M
+>>> [GeoHCAN] K-Means init done: 153600 samples → 4 centroids
+[GeoHCAN N=4] Ev:9.0 | maxSim:0.433 | u_resp:0.181 | T:0.182 | ||Q||:4.5 | L_lat:0.5548 | L_geo:0.0000
+[GeoHCAN N=4] Ev:8.0 | maxSim:0.388 | u_resp:0.186 | T:0.192 | ||Q||:4.4 | L_lat:0.6025 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.8 | maxSim:0.378 | u_resp:0.187 | T:0.194 | ||Q||:4.5 | L_lat:0.6122 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.9 | maxSim:0.383 | u_resp:0.186 | T:0.195 | ||Q||:4.5 | L_lat:0.6078 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.9 | maxSim:0.383 | u_resp:0.186 | T:0.195 | ||Q||:4.5 | L_lat:0.6080 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.9 | maxSim:0.383 | u_resp:0.186 | T:0.196 | ||Q||:4.5 | L_lat:0.6089 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.9 | maxSim:0.383 | u_resp:0.186 | T:0.195 | ||Q||:4.5 | L_lat:0.6087 | L_geo:0.0000
+Epoch: 1 | Train Loss: 0.4657151 Vali Loss: 0.4857239
+Validation loss decreased (inf --> 0.485724).  Saving model ...
+Updating learning rate to 1e-05
+[GeoHCAN N=4] Ev:7.6 | maxSim:0.369 | u_resp:0.187 | T:0.200 | ||Q||:4.5 | L_lat:0.6243 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.7 | maxSim:0.371 | u_resp:0.187 | T:0.201 | ||Q||:4.5 | L_lat:0.6218 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.5 | maxSim:0.366 | u_resp:0.188 | T:0.202 | ||Q||:4.5 | L_lat:0.6279 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.4 | maxSim:0.356 | u_resp:0.189 | T:0.206 | ||Q||:4.5 | L_lat:0.6380 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.4 | maxSim:0.353 | u_resp:0.189 | T:0.208 | ||Q||:4.5 | L_lat:0.6402 | L_geo:0.0000
+Epoch: 2 | Train Loss: 0.3625135 Vali Loss: 0.4584896
+Validation loss decreased (0.485724 --> 0.458490).  Saving model ...
+Updating learning rate to 5e-06
+[GeoHCAN N=4] Ev:7.2 | maxSim:0.344 | u_resp:0.190 | T:0.214 | ||Q||:4.5 | L_lat:0.6493 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.3 | maxSim:0.345 | u_resp:0.190 | T:0.213 | ||Q||:4.6 | L_lat:0.6473 | L_geo:0.0000
+[GeoHCAN N=4] Ev:7.1 | maxSim:0.335 | u_resp:0.191 | T:0.219 | ||Q||:4.6 | L_lat:0.6572 | L_geo:0.0000
+Epoch: 3 | Train Loss: 0.3436804 Vali Loss: 0.4698007
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 2.5e-06
+[GeoHCAN N=4] Ev:6.9 | maxSim:0.314 | u_resp:0.194 | T:0.227 | ||Q||:4.5 | L_lat:0.6748 | L_geo:0.0000
+Epoch: 4 | Train Loss: 0.3355952 Vali Loss: 0.4876150
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 1.25e-06
+[GeoHCAN N=4] Ev:6.8 | maxSim:0.307 | u_resp:0.195 | T:0.231 | ||Q||:4.6 | L_lat:0.6825 | L_geo:0.0000
+[GeoHCAN N=4] Ev:6.8 | maxSim:0.300 | u_resp:0.195 | T:0.232 | ||Q||:4.6 | L_lat:0.6884 | L_geo:0.0000
+[GeoHCAN N=4] Ev:6.9 | maxSim:0.310 | u_resp:0.194 | T:0.230 | ||Q||:4.6 | L_lat:0.6793 | L_geo:0.0000
+Epoch: 5 | Train Loss: 0.3316496 Vali Loss: 0.5031340
+EarlyStopping counter: 3 out of 3
+>>>>>>>testing : abl_lr1e5_f5_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_C_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 10444 M
+mse:0.3643888533115387, mae:0.42244279384613037
+>>> Visualization saved to ./test_results/abl_lr1e5_f5_EG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_C_0/
+
+============================================
+Test 4: lr=1e-5, factor=3, 无 energy_gate
+  → 隔离 energy_gate 的影响
+============================================
+Args in experiment:
+Namespace(activation='gelu', alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=21, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, d_proj=64, data='custom', data_path='weather.csv', dec_in=21, des='ablation_D', detach_temp=0, devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, e_layers=2, embed='timeF', embed_type=0, enc_in=21, factor=3, features='M', freq='h', gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_geo=0.0, lambda_latent=0.0, lambda_reg=0.05, lambda_uac=1.0, learning_rate=1e-05, loss='mse', lradj='type1', model='Informer', model_id='abl_lr1e5_f3_noEG', n_heads=8, num_class=4, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=96, rbf_gamma=1.0, root_path='./dataset/weather/', seq_len=96, target='OT', test_flop=False, train_epochs=6, train_only=False, use_amp=False, use_energy_gate=0, use_gpu=True, use_multi_gpu=False, use_proj_ln=0)
+Use GPU: cuda:0
+>>>>>>>start training : abl_lr1e5_f3_noEG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_D_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 36696 M
+val 5175 M
+test 10444 M
+>>> [GeoHCAN] K-Means init done: 153600 samples → 4 centroids
+[GeoHCAN N=4] Ev:2.0 | maxSim:0.428 | u_resp:0.248 | T:0.347 | ||Q||:4.4 | L_lat:0.5545 | L_geo:0.0000
+[GeoHCAN N=4] Ev:2.0 | maxSim:0.419 | u_resp:0.249 | T:0.352 | ||Q||:4.4 | L_lat:0.5631 | L_geo:0.0000
+[GeoHCAN N=4] Ev:2.0 | maxSim:0.416 | u_resp:0.250 | T:0.354 | ||Q||:4.4 | L_lat:0.5634 | L_geo:0.0000
+[GeoHCAN N=4] Ev:1.5 | maxSim:0.278 | u_resp:0.281 | T:0.485 | ||Q||:4.4 | L_lat:0.6857 | L_geo:0.0000
+Epoch: 1 | Train Loss: 0.4667097 Vali Loss: 0.4567204
+Validation loss decreased (inf --> 0.456720).  Saving model ...
+Updating learning rate to 1e-05
+[GeoHCAN N=4] Ev:1.3 | maxSim:0.214 | u_resp:0.297 | T:0.565 | ||Q||:4.5 | L_lat:0.7452 | L_geo:0.0000
+Epoch: 2 | Train Loss: 0.3631022 Vali Loss: 0.4790010
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 5e-06
+[GeoHCAN N=4] Ev:1.3 | maxSim:0.199 | u_resp:0.302 | T:0.592 | ||Q||:4.6 | L_lat:0.7584 | L_geo:0.0000
+[GeoHCAN N=4] Ev:1.3 | maxSim:0.201 | u_resp:0.302 | T:0.590 | ||Q||:4.7 | L_lat:0.7529 | L_geo:0.0000
+[GeoHCAN N=4] Ev:1.3 | maxSim:0.191 | u_resp:0.304 | T:0.604 | ||Q||:4.6 | L_lat:0.7650 | L_geo:0.0000
+[GeoHCAN N=4] Ev:1.2 | maxSim:0.187 | u_resp:0.306 | T:0.610 | ||Q||:4.7 | L_lat:0.7702 | L_geo:0.0000
+Epoch: 3 | Train Loss: 0.3442782 Vali Loss: 0.4759516
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 2.5e-06
+[GeoHCAN N=4] Ev:1.3 | maxSim:0.200 | u_resp:0.302 | T:0.593 | ||Q||:4.6 | L_lat:0.7527 | L_geo:0.0000
+Epoch: 4 | Train Loss: 0.3361569 Vali Loss: 0.4816373
+EarlyStopping counter: 3 out of 3
+>>>>>>>testing : abl_lr1e5_f3_noEG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_D_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 10444 M
+mse:0.33751046657562256, mae:0.40387868881225586
+>>> Visualization saved to ./test_results/abl_lr1e5_f3_noEG_Informer_custom_ftM_sl96_ll48_pl96_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_ablation_D_0/
+
+============================================
+所有消融测试完成! 汇总结果:
+============================================
+Test 1 (lr=1e-5, factor=3, EG=1): 最接近原始0.305
+Test 2 (lr=1e-4, factor=3, EG=1): 隔离lr
+Test 3 (lr=1e-5, factor=5, EG=1): 隔离factor
+Test 4 (lr=1e-5, factor=3, EG=0): 隔离energy_gate

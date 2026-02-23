@@ -1,0 +1,87 @@
+Args in experiment:
+Namespace(activation='gelu', adapter_hidden=0, alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=7, checkpoints='./checkpoints/', d_ff=32, d_layers=1, d_model=16, d_proj=16, data='ETTh1', data_path='ETTh1.csv', dec_in=7, des='timesnet_geo_v2_96', detach_temp=1, devices='0,1,2,3', distil=True, do_predict=False, dropout=0.1, e_layers=2, embed='timeF', embed_type=0, enc_in=7, factor=5, features='M', freeze_backbone=False, freq='h', gate_power=2, geohcan_d_model=512, gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_geo=0.0, lambda_latent=0.05, lambda_reg=0.05, lambda_uac=1.0, learning_rate=5e-05, loss='mse', lradj='type1', model='TimesNet', model_id='timesnet_geo_v2_96', moving_avg=25, n_heads=8, no_geohcan=False, num_class=4, num_coarse=2, num_fine=4, num_kernels=6, num_workers=10, output_attention=False, patch_len=16, patience=5, pred_len=96, rbf_gamma=1.0, root_path='./dataset/ETT-small/', seq_len=96, stride=8, target='OT', task_name='long_term_forecast', test_flop=False, timesnet_d_ff=32, timesnet_d_model=32, top_k=5, train_epochs=15, train_only=False, use_amp=False, use_energy_gate=0, use_gpu=True, use_multi_gpu=False, use_proj_ln=1)
+Use GPU: cuda:0
+[TimesNet Backbone] d_model=16, d_ff=32, output_dim=16, returns_rev_stats=True
+[Model] TimesNet | backbone_out=16 | geohcan_dim=512 | Backbone(16) → LinearAdapter(16→512) → GeoHCAN → Head → c_out(7) + RevIN denorm
+>>>>>>>start training : timesnet_geo_v2_96_TimesNet_ETTh1_ftM_sl96_ll48_pl96_nf4_proj16_gamma1.0_cls0.1_reg0.05_alp0.5_timesnet_geo_v2_96_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 8449 M
+val 2785 M
+test 2785 M
+>>> [GeoHCAN] K-Means init done: 153600 samples → 4 centroids (backbone=TimesNet)
+[GeoHCAN N=4] Ev:5.4 | maxSim:0.474 | u_resp:0.207 | T:0.236 | gate:0.629 | ||Q||:4.0 | L_lat:0.4970 | L_geo:0.0000
+[GeoHCAN N=4] Ev:4.3 | maxSim:0.300 | u_resp:0.222 | T:0.283 | gate:0.605 | ||Q||:4.0 | L_lat:0.6655 | L_geo:0.0000
+Epoch: 1 | Train Loss: 0.5276474 Vali Loss: 0.8595895
+Validation loss decreased (inf --> 0.859590).  Saving model ...
+Updating learning rate to 5e-05
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.064 | u_resp:0.257 | T:0.420 | gate:0.552 | ||Q||:4.0 | L_lat:0.6212 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.052 | u_resp:0.259 | T:0.432 | gate:0.549 | ||Q||:4.0 | L_lat:0.5677 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.055 | u_resp:0.259 | T:0.434 | gate:0.549 | ||Q||:4.0 | L_lat:0.5427 | L_geo:0.0000
+Epoch: 2 | Train Loss: 0.4301504 Vali Loss: 0.8216664
+Validation loss decreased (0.859590 --> 0.821666).  Saving model ...
+Updating learning rate to 2.5e-05
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.038 | u_resp:0.262 | T:0.517 | gate:0.545 | ||Q||:4.0 | L_lat:0.0684 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.262 | T:0.526 | gate:0.544 | ||Q||:4.0 | L_lat:0.0691 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.262 | T:0.535 | gate:0.545 | ||Q||:4.0 | L_lat:0.0746 | L_geo:0.0000
+Epoch: 3 | Train Loss: 0.4000962 Vali Loss: 0.8105850
+Validation loss decreased (0.821666 --> 0.810585).  Saving model ...
+Updating learning rate to 1.25e-05
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.550 | gate:0.544 | ||Q||:4.0 | L_lat:0.0571 | L_geo:0.0000
+Epoch: 4 | Train Loss: 0.3935255 Vali Loss: 0.8056511
+Validation loss decreased (0.810585 --> 0.805651).  Saving model ...
+Updating learning rate to 6.25e-06
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.557 | gate:0.544 | ||Q||:4.0 | L_lat:0.0425 | L_geo:0.0000
+Epoch: 5 | Train Loss: 0.3902160 Vali Loss: 0.8026369
+Validation loss decreased (0.805651 --> 0.802637).  Saving model ...
+Updating learning rate to 3.125e-06
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.560 | gate:0.544 | ||Q||:4.0 | L_lat:0.0528 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.262 | T:0.560 | gate:0.544 | ||Q||:4.0 | L_lat:0.0524 | L_geo:0.0000
+Epoch: 6 | Train Loss: 0.3887718 Vali Loss: 0.8013805
+Validation loss decreased (0.802637 --> 0.801380).  Saving model ...
+Updating learning rate to 1.5625e-06
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.262 | T:0.562 | gate:0.544 | ||Q||:4.0 | L_lat:0.0508 | L_geo:0.0000
+Epoch: 7 | Train Loss: 0.3879757 Vali Loss: 0.8005100
+Validation loss decreased (0.801380 --> 0.800510).  Saving model ...
+Updating learning rate to 7.8125e-07
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.262 | T:0.564 | gate:0.544 | ||Q||:4.0 | L_lat:0.0487 | L_geo:0.0000
+Epoch: 8 | Train Loss: 0.3875425 Vali Loss: 0.8003983
+Validation loss decreased (0.800510 --> 0.800398).  Saving model ...
+Updating learning rate to 3.90625e-07
+Epoch: 9 | Train Loss: 0.3872366 Vali Loss: 0.8001970
+Validation loss decreased (0.800398 --> 0.800197).  Saving model ...
+Updating learning rate to 1.953125e-07
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.564 | gate:0.544 | ||Q||:4.0 | L_lat:0.0672 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0611 | L_geo:0.0000
+Epoch: 10 | Train Loss: 0.3872928 Vali Loss: 0.8000026
+Validation loss decreased (0.800197 --> 0.800003).  Saving model ...
+Updating learning rate to 9.765625e-08
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.263 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0670 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.263 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0421 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0472 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.263 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0473 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0652 | L_geo:0.0000
+Epoch: 11 | Train Loss: 0.3870782 Vali Loss: 0.7997186
+Validation loss decreased (0.800003 --> 0.799719).  Saving model ...
+Updating learning rate to 4.8828125e-08
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0558 | L_geo:0.0000
+Epoch: 12 | Train Loss: 0.3871635 Vali Loss: 0.8000618
+EarlyStopping counter: 1 out of 5
+Updating learning rate to 2.44140625e-08
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.262 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0618 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.564 | gate:0.544 | ||Q||:4.0 | L_lat:0.0508 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.037 | u_resp:0.262 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0498 | L_geo:0.0000
+Epoch: 13 | Train Loss: 0.3872029 Vali Loss: 0.8001655
+EarlyStopping counter: 2 out of 5
+Updating learning rate to 1.220703125e-08
+Epoch: 14 | Train Loss: 0.3871638 Vali Loss: 0.8002294
+EarlyStopping counter: 3 out of 5
+Updating learning rate to 6.103515625e-09
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.263 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0516 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.263 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0427 | L_geo:0.0000
+[GeoHCAN N=4] Ev:3.5 | maxSim:0.036 | u_resp:0.262 | T:0.565 | gate:0.544 | ||Q||:4.0 | L_lat:0.0450 | L_geo:0.0000
+Epoch: 15 | Train Loss: 0.3871677 Vali Loss: 0.7994997
+Validation loss decreased (0.799719 --> 0.799500).  Saving model ...
+Updating learning rate to 3.0517578125e-09
+>>>>>>>testing : timesnet_geo_v2_96_TimesNet_ETTh1_ftM_sl96_ll48_pl96_nf4_proj16_gamma1.0_cls0.1_reg0.05_alp0.5_timesnet_geo_v2_96_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2785 M
+mse:0.40053877234458923, mae:0.42071112990379333
+>>> Visualization saved to ./test_results/timesnet_geo_v2_96_TimesNet_ETTh1_ftM_sl96_ll48_pl96_nf4_proj16_gamma1.0_cls0.1_reg0.05_alp0.5_timesnet_geo_v2_96_0/

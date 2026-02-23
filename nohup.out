@@ -1,0 +1,64 @@
+usage: run.py [-h] --is_training IS_TRAINING [--train_only TRAIN_ONLY] --model_id MODEL_ID --model MODEL --data DATA [--root_path ROOT_PATH]
+              [--data_path DATA_PATH] [--features FEATURES] [--target TARGET] [--freq FREQ] [--checkpoints CHECKPOINTS] [--seq_len SEQ_LEN]
+              [--label_len LABEL_LEN] [--pred_len PRED_LEN] [--embed_type EMBED_TYPE] [--enc_in ENC_IN] [--dec_in DEC_IN] [--c_out C_OUT]
+              [--d_model D_MODEL] [--n_heads N_HEADS] [--e_layers E_LAYERS] [--d_layers D_LAYERS] [--d_ff D_FF] [--factor FACTOR] [--distil]
+              [--dropout DROPOUT] [--embed EMBED] [--activation ACTIVATION] [--output_attention] [--do_predict] [--num_workers NUM_WORKERS]
+              [--itr ITR] [--train_epochs TRAIN_EPOCHS] [--batch_size BATCH_SIZE] [--patience PATIENCE] [--learning_rate LEARNING_RATE]
+              [--des DES] [--loss LOSS] [--lradj LRADJ] [--use_amp] [--num_fine NUM_FINE] [--num_coarse NUM_COARSE] [--beta_scale BETA_SCALE]
+              [--d_proj D_PROJ] [--rbf_gamma RBF_GAMMA] [--lambda_direct LAMBDA_DIRECT] [--lambda_cls LAMBDA_CLS] [--lambda_acl LAMBDA_ACL]
+              [--lambda_uac LAMBDA_UAC] [--use_gpu USE_GPU] [--gpu GPU] [--use_multi_gpu] [--devices DEVICES] [--test_flop]
+run.py: error: the following arguments are required: --is_training, --model_id
+usage: run.py [-h] --is_training IS_TRAINING [--train_only TRAIN_ONLY] --model_id MODEL_ID --model MODEL --data DATA [--root_path ROOT_PATH]
+              [--data_path DATA_PATH] [--features FEATURES] [--target TARGET] [--freq FREQ] [--checkpoints CHECKPOINTS] [--seq_len SEQ_LEN]
+              [--label_len LABEL_LEN] [--pred_len PRED_LEN] [--embed_type EMBED_TYPE] [--enc_in ENC_IN] [--dec_in DEC_IN] [--c_out C_OUT]
+              [--d_model D_MODEL] [--n_heads N_HEADS] [--e_layers E_LAYERS] [--d_layers D_LAYERS] [--d_ff D_FF] [--factor FACTOR] [--distil]
+              [--dropout DROPOUT] [--embed EMBED] [--activation ACTIVATION] [--output_attention] [--do_predict] [--num_workers NUM_WORKERS]
+              [--itr ITR] [--train_epochs TRAIN_EPOCHS] [--batch_size BATCH_SIZE] [--patience PATIENCE] [--learning_rate LEARNING_RATE]
+              [--des DES] [--loss LOSS] [--lradj LRADJ] [--use_amp] [--num_fine NUM_FINE] [--num_coarse NUM_COARSE] [--beta_scale BETA_SCALE]
+              [--d_proj D_PROJ] [--rbf_gamma RBF_GAMMA] [--lambda_direct LAMBDA_DIRECT] [--lambda_cls LAMBDA_CLS] [--lambda_acl LAMBDA_ACL]
+              [--lambda_uac LAMBDA_UAC] [--use_gpu USE_GPU] [--gpu GPU] [--use_multi_gpu] [--devices DEVICES] [--test_flop]
+run.py: error: the following arguments are required: --is_training, --model_id
+usage: run.py [-h] --is_training IS_TRAINING [--train_only TRAIN_ONLY] --model_id MODEL_ID --model MODEL --data DATA [--root_path ROOT_PATH]
+              [--data_path DATA_PATH] [--features FEATURES] [--target TARGET] [--freq FREQ] [--checkpoints CHECKPOINTS] [--seq_len SEQ_LEN]
+              [--label_len LABEL_LEN] [--pred_len PRED_LEN] [--embed_type EMBED_TYPE] [--enc_in ENC_IN] [--dec_in DEC_IN] [--c_out C_OUT]
+              [--d_model D_MODEL] [--n_heads N_HEADS] [--e_layers E_LAYERS] [--d_layers D_LAYERS] [--d_ff D_FF] [--factor FACTOR] [--distil]
+              [--dropout DROPOUT] [--embed EMBED] [--activation ACTIVATION] [--output_attention] [--do_predict] [--num_workers NUM_WORKERS]
+              [--itr ITR] [--train_epochs TRAIN_EPOCHS] [--batch_size BATCH_SIZE] [--patience PATIENCE] [--learning_rate LEARNING_RATE]
+              [--des DES] [--loss LOSS] [--lradj LRADJ] [--use_amp] [--num_fine NUM_FINE] [--num_coarse NUM_COARSE] [--beta_scale BETA_SCALE]
+              [--d_proj D_PROJ] [--rbf_gamma RBF_GAMMA] [--lambda_direct LAMBDA_DIRECT] [--lambda_cls LAMBDA_CLS] [--lambda_acl LAMBDA_ACL]
+              [--lambda_uac LAMBDA_UAC] [--use_gpu USE_GPU] [--gpu GPU] [--use_multi_gpu] [--devices DEVICES] [--test_flop]
+run.py: error: the following arguments are required: --is_training, --model_id
+Args in experiment:
+Namespace(activation='gelu', alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=21, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, d_proj=64, data='custom', data_path='weather.csv', dec_in=21, des='Exp_Stage2_Sharpen', devices='0,1,2,3', distil=True, do_predict=True, dropout=0.05, e_layers=2, embed='timeF', embed_type=0, enc_in=21, factor=5, features='M', freq='h', gpu=0, is_training=0, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_reg=0.05, lambda_uac=1.0, learning_rate=0.0001, loss='mse', lradj='type1', model='Informer', model_id='weather_96_720_Stage2', n_heads=8, num_class=4, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=720, rbf_gamma=1.0, root_path='./dataset/weather/', seq_len=96, target='OT', test_flop=False, train_epochs=5, train_only=False, use_amp=False, use_gpu=True, use_multi_gpu=False)
+Use GPU: cuda:0
+>>>>>>>predicting : weather_96_720_Stage2_Informer_custom_ftM_sl96_ll48_pl720_nf4_proj64_gamma1.0_cls0.1_reg0.05_alp0.5_Exp_Stage2_Sharpen_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+pred 1 M
+Exception ignored in: <function _releaseLock at 0x7fe8b43334c0>
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/hcan/lib/python3.8/logging/__init__.py", line 227, in _releaseLock
+    def _releaseLock():
+KeyboardInterrupt: 
+Traceback (most recent call last):
+  File "run.py", line 180, in <module>
+    exp.predict(setting, True)
+  File "/root/autodl-tmp/HCAN-main/HCAN-main/exp/exp_main.py", line 276, in predict
+    for i, (batch_x, batch_y, batch_x_mark, batch_y_mark) in enumerate(pred_loader):
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 530, in __next__
+    data = self._next_data()
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1207, in _next_data
+    idx, data = self._get_data()
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1173, in _get_data
+    success, data = self._try_get_data()
+  File "/root/miniconda3/envs/hcan/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1011, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/root/miniconda3/envs/hcan/lib/python3.8/multiprocessing/queues.py", line 107, in get
+    if not self._poll(timeout):
+  File "/root/miniconda3/envs/hcan/lib/python3.8/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+  File "/root/miniconda3/envs/hcan/lib/python3.8/multiprocessing/connection.py", line 424, in _poll
+    r = wait([self], timeout)
+  File "/root/miniconda3/envs/hcan/lib/python3.8/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/root/miniconda3/envs/hcan/lib/python3.8/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt

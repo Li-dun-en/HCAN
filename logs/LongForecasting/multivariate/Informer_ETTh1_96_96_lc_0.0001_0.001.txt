@@ -1,0 +1,73 @@
+Args in experiment:
+Namespace(activation='gelu', annealing_start=0.01, annealing_step=10, batch_size=32, c_out=7, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, data='ETTh1', data_path='ETTh1.csv', dec_in=7, des='Exp', devices='4,5,6,7', distil=True, do_predict=False, dropout=0.05, e_layers=2, edl_loss='edl_mse', embed='timeF', embed_type=0, enc_in=7, etrans_func='softplus', factor=3, features='M', freq='h', gpu=0, hidden_dim=512, individual=False, is_training=1, itr=1, label_len=48, lambda_acl=1, lambda_cls=0.0001, lambda_direct=1, lambda_reg=1, learning_rate=0.001, loss='mse', lradj='type1', model='Informer', model_id='ETTh1_96_96', moving_avg=25, n_heads=8, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=3, pred_len=96, root_path='./dataset/ETT-small/', seq_len=96, target='OT', test_flop=False, train_epochs=30, train_only=False, use_amp=False, use_gpu=True, use_multi_gpu=False, use_span_weight=False, with_iw=True, with_kl=True, with_uc=True)
+Use GPU: cuda:0
+>>>>>>>start training : ETTh1_96_96_Informer_ETTh1_ftM_sl96_ll48_pl96_lc0.0001_lr0.001_dm512_nh8_el2_dl1_df2048_fc3_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 8449 M
+val 2785 M
+test 2785 M
+	iters: 100, epoch: 1 | loss: 1.5009562
+	speed: 0.0795s/iter; left time: 622.1392s
+	iters: 200, epoch: 1 | loss: 1.4329250
+	speed: 0.0633s/iter; left time: 488.8317s
+Epoch: 1 | 30 cost time: 18.7583s
+Epoch: 1, Steps: 264 | Train Loss: 1.8879556 Vali Loss: 1.9890136 Test Loss: 1.6661117
+Validation loss decreased (inf --> 1.989014).  Saving model ...
+Updating learning rate to 0.001
+	iters: 100, epoch: 2 | loss: 1.3084317
+	speed: 0.1644s/iter; left time: 1242.1080s
+	iters: 200, epoch: 2 | loss: 1.2214895
+	speed: 0.0681s/iter; left time: 507.9350s
+Epoch: 2 | 30 cost time: 18.0741s
+Epoch: 2, Steps: 264 | Train Loss: 1.2411053 Vali Loss: 1.7790792 Test Loss: 1.4432940
+Validation loss decreased (1.989014 --> 1.779079).  Saving model ...
+Updating learning rate to 0.0005
+	iters: 100, epoch: 3 | loss: 1.2098439
+	speed: 0.1718s/iter; left time: 1252.9764s
+	iters: 200, epoch: 3 | loss: 1.1836457
+	speed: 0.0669s/iter; left time: 481.5394s
+Epoch: 3 | 30 cost time: 18.8578s
+Epoch: 3, Steps: 264 | Train Loss: 1.1529680 Vali Loss: 1.7419177 Test Loss: 1.5005949
+Validation loss decreased (1.779079 --> 1.741918).  Saving model ...
+Updating learning rate to 0.00025
+	iters: 100, epoch: 4 | loss: 1.1380589
+	speed: 0.1688s/iter; left time: 1186.8360s
+	iters: 200, epoch: 4 | loss: 1.1216426
+	speed: 0.0682s/iter; left time: 472.7657s
+Epoch: 4 | 30 cost time: 18.6703s
+Epoch: 4, Steps: 264 | Train Loss: 1.1149729 Vali Loss: 1.7513452 Test Loss: 1.4879223
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 0.000125
+	iters: 100, epoch: 5 | loss: 1.1196010
+	speed: 0.1707s/iter; left time: 1154.7732s
+	iters: 200, epoch: 5 | loss: 1.1511358
+	speed: 0.0682s/iter; left time: 454.2687s
+Epoch: 5 | 30 cost time: 18.9285s
+Epoch: 5, Steps: 264 | Train Loss: 1.0935216 Vali Loss: 1.7983915 Test Loss: 1.5392332
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 6.25e-05
+	iters: 100, epoch: 6 | loss: 1.0986632
+	speed: 0.1711s/iter; left time: 1112.0498s
+	iters: 200, epoch: 6 | loss: 1.1123259
+	speed: 0.0714s/iter; left time: 456.7609s
+Epoch: 6 | 30 cost time: 19.3024s
+Epoch: 6, Steps: 264 | Train Loss: 1.0818766 Vali Loss: 1.8072144 Test Loss: 1.5362424
+EarlyStopping counter: 3 out of 3
+Early stopping
+>>>>>>>testing : ETTh1_96_96_Informer_ETTh1_ftM_sl96_ll48_pl96_lc0.0001_lr0.001_dm512_nh8_el2_dl1_df2048_fc3_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2785 M
+rmse:0.8722352385520935, mse:0.7607943415641785, mae:0.6537386775016785, corr:[0.24384288 0.2503754  0.24773681 0.24657209 0.23882188 0.2217882
+ 0.22889134 0.22197983 0.21992671 0.22369815 0.22066599 0.21689074
+ 0.20367128 0.20497549 0.20987915 0.21659212 0.21636285 0.22787862
+ 0.22933438 0.22945417 0.22701967 0.21670689 0.21948665 0.21477498
+ 0.22341257 0.23167133 0.23092116 0.23360856 0.20258327 0.20196939
+ 0.18851484 0.19916765 0.19464588 0.20171064 0.19139327 0.18831255
+ 0.18371725 0.17858164 0.17177148 0.19221827 0.21022256 0.2075661
+ 0.21244825 0.20379193 0.19853319 0.18801263 0.19062406 0.19719805
+ 0.19638994 0.21326822 0.20548105 0.20133    0.19690365 0.18109995
+ 0.17665449 0.17274603 0.17790644 0.17433421 0.17711952 0.16731477
+ 0.16257623 0.16002671 0.143657   0.16528124 0.17171629 0.18848073
+ 0.18544833 0.18939756 0.18979065 0.18078198 0.1796231  0.17881638
+ 0.1871192  0.19640264 0.20046939 0.20174702 0.18412931 0.17392452
+ 0.16951269 0.16288266 0.16500537 0.16886476 0.16119547 0.16080719
+ 0.1520134  0.15109512 0.15835209 0.16173252 0.16879272 0.1781912
+ 0.19513321 0.18348551 0.16957974 0.17322691 0.17534612 0.18117635]

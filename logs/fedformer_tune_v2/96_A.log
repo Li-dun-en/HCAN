@@ -1,0 +1,56 @@
+Args in experiment:
+Namespace(activation='gelu', adapter_hidden=0, alpha_temp=0.5, batch_size=32, beta_scale=1.0, c_out=7, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, d_proj=16, data='ETTh1', data_path='ETTh1.csv', dec_in=7, des='fed_v2_96A', detach_temp=1, devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, dual_stream=False, e_layers=2, embed='timeF', embed_type=0, enc_in=7, factor=5, features='M', freeze_backbone=False, freeze_geo=False, freq='h', gate_power=2, geohcan_d_model=0, gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.1, lambda_direct=1.0, lambda_geo=0.0, lambda_latent=0.001, lambda_ortho=0.001, lambda_reg=0.05, lambda_uac=1.0, learning_rate=0.0001, loss='mse', lradj='type1', model='FEDformer', model_id='fed_v2_96A', moving_avg=25, n_heads=8, no_geohcan=False, num_class=6, num_coarse=2, num_fine=6, num_kernels=6, num_workers=10, output_attention=False, patch_len=16, patience=3, pred_len=96, rbf_gamma=1.0, root_path='./dataset/ETT-small/', seq_len=96, stride=8, target='OT', task_name='long_term_forecast', test_flop=False, timesnet_d_ff=32, timesnet_d_model=32, top_k=5, train_epochs=10, train_only=False, use_amp=False, use_energy_gate=0, use_gpu=True, use_multi_gpu=False, use_proj_ln=1)
+Use GPU: cuda:0
+fourier enhanced block used!
+modes=32, index=[2, 3, 4, 5, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 23, 25, 26, 28, 31, 32, 34, 35, 37, 38, 39, 40, 42, 43, 44, 46]
+fourier enhanced block used!
+modes=32, index=[0, 1, 2, 4, 5, 8, 10, 12, 13, 14, 16, 21, 22, 24, 26, 28, 29, 30, 34, 35, 37, 38, 42, 43, 45, 47, 56, 57, 58, 65, 70, 71]
+ fourier enhanced cross attention used!
+modes_q=32, index_q=[0, 8, 13, 14, 16, 17, 18, 19, 21, 22, 24, 28, 29, 33, 37, 40, 42, 43, 44, 47, 48, 50, 51, 53, 55, 56, 58, 60, 62, 63, 68, 69]
+modes_kv=32, index_kv=[0, 1, 2, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 20, 22, 24, 28, 30, 31, 32, 34, 35, 36, 37, 38, 39, 44, 45, 46, 47]
+[Model] FEDformer | backbone_out=512 | geohcan_dim=512 | Backbone(512) → no adapter → GeoHCAN → Head → c_out(7)
+>>>>>>>start training : fed_v2_96A_FEDformer_ETTh1_ftM_sl96_ll48_pl96_nf6_proj16_gamma1.0_cls0.1_reg0.05_alp0.5_fed_v2_96A_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 8449 M
+val 2785 M
+test 2785 M
+>>> [GeoHCAN] K-Means init done: 153600 samples → 6 centroids (backbone=FEDformer)
+Epoch: 1 | Train Loss: 0.4430485 Vali Loss: 0.8184637
+Validation loss decreased (inf --> 0.818464).  Saving model ...
+Updating learning rate to 0.0001
+Epoch: 2 | Train Loss: 0.3791489 Vali Loss: 0.7946453
+Validation loss decreased (0.818464 --> 0.794645).  Saving model ...
+Updating learning rate to 5e-05
+[GeoHCAN N=6] Ev:5.7 | maxSim:0.530 | u_resp:0.187 | T:0.214 | gate:0.661 | ||Q||:4.0 | L_lat:0.4320 | L_geo:0.0000
+Epoch: 3 | Train Loss: 0.3649493 Vali Loss: 0.7878870
+Validation loss decreased (0.794645 --> 0.787887).  Saving model ...
+Updating learning rate to 2.5e-05
+Epoch: 4 | Train Loss: 0.3592294 Vali Loss: 0.7846419
+Validation loss decreased (0.787887 --> 0.784642).  Saving model ...
+Updating learning rate to 1.25e-05
+[GeoHCAN N=6] Ev:5.6 | maxSim:0.524 | u_resp:0.187 | T:0.224 | gate:0.661 | ||Q||:4.0 | L_lat:0.4357 | L_geo:0.0000
+[GeoHCAN N=6] Ev:5.6 | maxSim:0.528 | u_resp:0.187 | T:0.225 | gate:0.661 | ||Q||:4.0 | L_lat:0.4317 | L_geo:0.0000
+Epoch: 5 | Train Loss: 0.3563779 Vali Loss: 0.7803685
+Validation loss decreased (0.784642 --> 0.780369).  Saving model ...
+Updating learning rate to 6.25e-06
+Epoch: 6 | Train Loss: 0.3550074 Vali Loss: 0.7835007
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 3.125e-06
+[GeoHCAN N=6] Ev:5.6 | maxSim:0.518 | u_resp:0.187 | T:0.227 | gate:0.661 | ||Q||:4.0 | L_lat:0.4381 | L_geo:0.0000
+Epoch: 7 | Train Loss: 0.3542069 Vali Loss: 0.7786793
+Validation loss decreased (0.780369 --> 0.778679).  Saving model ...
+Updating learning rate to 1.5625e-06
+[GeoHCAN N=6] Ev:5.6 | maxSim:0.517 | u_resp:0.187 | T:0.228 | gate:0.660 | ||Q||:4.0 | L_lat:0.4410 | L_geo:0.0000
+Epoch: 8 | Train Loss: 0.3537988 Vali Loss: 0.7796934
+EarlyStopping counter: 1 out of 3
+Updating learning rate to 7.8125e-07
+[GeoHCAN N=6] Ev:5.6 | maxSim:0.513 | u_resp:0.188 | T:0.229 | gate:0.660 | ||Q||:4.0 | L_lat:0.4440 | L_geo:0.0000
+Epoch: 9 | Train Loss: 0.3534206 Vali Loss: 0.7799044
+EarlyStopping counter: 2 out of 3
+Updating learning rate to 3.90625e-07
+[GeoHCAN N=6] Ev:5.5 | maxSim:0.510 | u_resp:0.188 | T:0.229 | gate:0.660 | ||Q||:4.0 | L_lat:0.4484 | L_geo:0.0000
+Epoch: 10 | Train Loss: 0.3534395 Vali Loss: 0.7797999
+EarlyStopping counter: 3 out of 3
+>>>>>>>testing : fed_v2_96A_FEDformer_ETTh1_ftM_sl96_ll48_pl96_nf6_proj16_gamma1.0_cls0.1_reg0.05_alp0.5_fed_v2_96A_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2785 M
+mse:0.376693457365036, mae:0.4152982532978058
+>>> Visualization saved to ./test_results/fed_v2_96A_FEDformer_ETTh1_ftM_sl96_ll48_pl96_nf6_proj16_gamma1.0_cls0.1_reg0.05_alp0.5_fed_v2_96A_0/

@@ -1,0 +1,75 @@
+nohup: ignoring input
+Args in experiment:
+Namespace(activation='gelu', batch_size=32, beta_scale=1.0, c_out=7, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, data='ETTh1', data_path='ETTh1.csv', dec_in=7, des='Exp_High_Reg', devices='0,1,2,3', distil=True, do_predict=False, dropout=0.1, e_layers=2, embed='timeF', embed_type=0, enc_in=7, factor=5, features='M', freq='h', gpu=0, is_training=1, itr=1, label_len=48, lambda_acl=1.0, lambda_cls=0.5, lambda_direct=1.0, learning_rate=0.0001, loss='mse', lradj='type1', model='Informer', model_id='ETTh1_96_24_Reg', n_heads=8, num_coarse=2, num_fine=4, num_workers=10, output_attention=False, patience=4, pred_len=24, root_path='./dataset/ETT-small', seq_len=96, target='OT', test_flop=False, train_epochs=12, train_only=False, use_amp=False, use_gpu=True, use_multi_gpu=False)
+Use GPU: cuda:0
+>>>>>>>start training : ETTh1_96_24_Reg_Informer_ETTh1_ftM_sl96_ll48_pl24_nc2_nf4_beta1.0_wcls0.5_wacl1.0_Exp_High_Reg_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+[Dataset] Coarse Centers: [-0.94507139  0.60258153]
+[Dataset] Fine Centers: [-2.2433963  -0.79855097  0.18927888  1.30267135]
+train 8521 M
+val 2857 M
+test 2857 M
+[Exp] Loading Centers from Dataset...
+[Exp] Coarse Centers: [-0.9450714  0.6025815]
+[Exp] Fine Centers: [-2.2433963  -0.79855096  0.18927889  1.3026713 ]
+	iters: 100, epoch: 1 | loss: 0.6919495 | mse: 0.4490, uac: 0.4837, hcl: 0.0011
+	speed: 0.0650s/iter; left time: 200.9732s
+	iters: 200, epoch: 1 | loss: 0.5592023 | mse: 0.3529, uac: 0.4106, hcl: 0.0010
+	speed: 0.0577s/iter; left time: 172.5470s
+Epoch: 1 | 12 cost time: 15.7074s
+Epoch: 1, Steps: 266 | Train Loss: 0.6619515 Vali Loss: 1.0727886 Test Loss: 0.8907504
+Validation loss decreased (inf --> 1.072789).  Saving model ...
+Updating learning rate to 0.0001
+	iters: 100, epoch: 2 | loss: 0.5156640 | mse: 0.2954, uac: 0.4385, hcl: 0.0010
+	speed: 0.1529s/iter; left time: 432.2207s
+	iters: 200, epoch: 2 | loss: 0.5014234 | mse: 0.2882, uac: 0.4246, hcl: 0.0010
+	speed: 0.0638s/iter; left time: 173.8502s
+Epoch: 2 | 12 cost time: 17.2956s
+Epoch: 2, Steps: 266 | Train Loss: 0.5201136 Vali Loss: 1.0190984 Test Loss: 0.9793782
+Validation loss decreased (1.072789 --> 1.019098).  Saving model ...
+Updating learning rate to 5e-05
+	iters: 100, epoch: 3 | loss: 0.4779861 | mse: 0.2708, uac: 0.4123, hcl: 0.0010
+	speed: 0.1575s/iter; left time: 403.4365s
+	iters: 200, epoch: 3 | loss: 0.4442394 | mse: 0.2568, uac: 0.3731, hcl: 0.0009
+	speed: 0.0600s/iter; left time: 147.5493s
+Epoch: 3 | 12 cost time: 16.2151s
+Epoch: 3, Steps: 266 | Train Loss: 0.4667748 Vali Loss: 1.0128895 Test Loss: 1.0760519
+Validation loss decreased (1.019098 --> 1.012890).  Saving model ...
+Updating learning rate to 2.5e-05
+	iters: 100, epoch: 4 | loss: 0.4377472 | mse: 0.2333, uac: 0.4069, hcl: 0.0009
+	speed: 0.1427s/iter; left time: 327.5659s
+	iters: 200, epoch: 4 | loss: 0.4508028 | mse: 0.2642, uac: 0.3716, hcl: 0.0008
+	speed: 0.0502s/iter; left time: 110.2680s
+Epoch: 4 | 12 cost time: 14.6972s
+Epoch: 4, Steps: 266 | Train Loss: 0.4430768 Vali Loss: 1.0597717 Test Loss: 1.0633373
+EarlyStopping counter: 1 out of 4
+Updating learning rate to 1.25e-05
+	iters: 100, epoch: 5 | loss: 0.4233585 | mse: 0.2214, uac: 0.4020, hcl: 0.0009
+	speed: 0.1505s/iter; left time: 305.3148s
+	iters: 200, epoch: 5 | loss: 0.4462160 | mse: 0.2373, uac: 0.4159, hcl: 0.0009
+	speed: 0.0596s/iter; left time: 114.8821s
+Epoch: 5 | 12 cost time: 16.2996s
+Epoch: 5, Steps: 266 | Train Loss: 0.4299979 Vali Loss: 1.0576494 Test Loss: 1.0871793
+EarlyStopping counter: 2 out of 4
+Updating learning rate to 6.25e-06
+	iters: 100, epoch: 6 | loss: 0.4083138 | mse: 0.2161, uac: 0.3828, hcl: 0.0009
+	speed: 0.1591s/iter; left time: 280.5258s
+	iters: 200, epoch: 6 | loss: 0.4156489 | mse: 0.2263, uac: 0.3770, hcl: 0.0008
+	speed: 0.0485s/iter; left time: 80.6146s
+Epoch: 6 | 12 cost time: 15.0449s
+Epoch: 6, Steps: 266 | Train Loss: 0.4232357 Vali Loss: 1.0662509 Test Loss: 1.0652267
+EarlyStopping counter: 3 out of 4
+Updating learning rate to 3.125e-06
+	iters: 100, epoch: 7 | loss: 0.4324567 | mse: 0.2310, uac: 0.4010, hcl: 0.0009
+	speed: 0.1453s/iter; left time: 217.4720s
+	iters: 200, epoch: 7 | loss: 0.4253959 | mse: 0.2281, uac: 0.3929, hcl: 0.0009
+	speed: 0.0586s/iter; left time: 81.8930s
+Epoch: 7 | 12 cost time: 15.8746s
+Epoch: 7, Steps: 266 | Train Loss: 0.4190278 Vali Loss: 1.0683869 Test Loss: 1.0801506
+EarlyStopping counter: 4 out of 4
+Early stopping
+>>>>>>>testing : ETTh1_96_24_Reg_Informer_ETTh1_ftM_sl96_ll48_pl24_nc2_nf4_beta1.0_wcls0.5_wacl1.0_Exp_High_Reg_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+test 2857 M
+rmse:0.8598360419273376, mse:0.7393180131912231, mae:0.6435558199882507, corr:[0.28398716 0.2761788  0.2675523  0.26929566 0.26708877 0.26024306
+ 0.23840734 0.23777813 0.23025131 0.2336     0.23591205 0.23413311
+ 0.23454484 0.2354136  0.22147997 0.22669119 0.22382464 0.22917743
+ 0.23259582 0.24422601 0.24842718 0.24998614 0.24544218 0.2309821 ]
